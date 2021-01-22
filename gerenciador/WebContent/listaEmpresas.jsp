@@ -3,23 +3,20 @@
 	
 <%@ page import="java.util.List, site.camila.gerenciador.servlet.Empresa" %>
 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Java Standard Taqlib</title>
 </head>
 <body>
 	Listas de Empresas: <br/>
 	<ul>
-		<%
-		List<Empresa> lista = (List<Empresa>) request.getAttribute("empresas");
-		for (Empresa empresa : lista) {
-		%>
-			<li> <%= empresa.getNome() %> </li>
-		<%
-			} 
-		%>
+		<c:forEach items="${empresas}" var="empresa">
+			<li> ${empresa.nome } </li>
+		</c:forEach>
 	</ul>
 
 </body>
